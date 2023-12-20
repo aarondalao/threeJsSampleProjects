@@ -40,7 +40,7 @@ function configureControls (ctrls) {
 
     // autorotate
     ctrls.autoRotate = true;
-    ctrls. autoRotateSpeed = 1;
+    ctrls. autoRotateSpeed = 2;
 
     // zoom limiter
     ctrls.minDistance = 5;
