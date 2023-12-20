@@ -39,8 +39,8 @@ class World {
 
         const controls = new createControls(camera, renderer.domElement);
 
-        const cube1 = createModels("Standard");
-        const cube2 = createModels("Phong");
+        const { model1, model2 } = createModels();
+        
         const { mainLight, ambientLight } = createLights();
 
         // this will point the control at an oject by copying the object's position
@@ -54,10 +54,10 @@ class World {
         // controls.enabled = false;
         
 
-        loop.updatables.push(cube1, cube2, controls);
+        loop.updatables.push(model1, model2 ,controls );
         // loop.updatables.push( controls);
 
-        scene.add(cube1, cube2, mainLight, ambientLight);
+        scene.add(model1, model2 ,mainLight, ambientLight);
 
         console.log(scene.children);
 
