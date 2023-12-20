@@ -9,6 +9,7 @@ import { createRenderer } from './Systems/renderer';
 import { Resizer } from './Systems/Resizer';
 import { Loop } from './Systems/Loop';
 import { createControls } from './Systems/controls';
+import { createMeshGroup } from './Components/meshGroup';
 
 let camera;
 let renderer;
@@ -39,7 +40,9 @@ class World {
 
         const controls = new createControls(camera, renderer.domElement);
 
-        const { model1, model2 } = createModels();
+        // const { model1, model2 } = createModels();
+
+        const group = createMeshGroup();
         
         const { mainLight, ambientLight } = createLights();
 
@@ -53,11 +56,15 @@ class World {
         // CAMERA OR THE TARGET
         // controls.enabled = false;
         
-
-        loop.updatables.push(model1, model2 ,controls );
+        // for models.js
+        // loop.updatables.push(model1, model2 ,controls );
         // loop.updatables.push( controls);
+        // scene.add(model1, model2 ,mainLight, ambientLight);
 
-        scene.add(model1, model2 ,mainLight, ambientLight);
+        // for meshGroup.js
+
+        loop.updatables.push(group ,controls );
+        scene.add(group, mainLight, ambientLight);
 
         console.log(scene.children);
 
